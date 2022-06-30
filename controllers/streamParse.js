@@ -14,7 +14,6 @@ function exportCsv(req,res){
         });
         resultat.on('end', function(){
             parser.parseString(data, function(error, result) {
-                console.log(result)
                 if(!error) {
                     const tab = [];
                     let items = result.rss.channel[0].item;
