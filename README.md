@@ -3,6 +3,7 @@ npm 8.1.2
 
 Clonez le projet 
 Pour lancer le serveur : docker-compose up -d
+Configurez également votre .env inspirer du .env.example
 
 Rendez vous à l'adresse 172.30.0.3:votre_port pour télécharger le csv
 Pour connaitre l'ip de l'app faites docker inspect app | grep IPAddress
