@@ -5,17 +5,20 @@ Clonez le projet
 Pour lancer le serveur : docker-compose up -d
 Configurez également votre .env inspirer du .env.example
 
-Rendez vous à l'adresse 172.30.0.3:votre_port pour télécharger le csv
+Placez vous dans le container mysqldb et 
+faites mysql -u root -p votre-database-name < docker-entrypoint-initdb.d/create_client.sql
+Crée une base de donnée avant.
+
 Pour connaitre l'ip de l'app faites docker inspect app | grep IPAddress
 Installez Postman pour la partie 2 pour gérer les clients
 
-172.30.0.3:votre_port/client/create => le body à envoyer dans la requête doit contenir en JSON => { name: name,description: description }
+POST IPAddress:votre_port/client/create => le body à envoyer dans la requête doit contenir en JSON => { name: name,description: description }
 
-172.30.0.3:votre_port/client/clients
+GET IPAddress:votre_port/client/clients
 
-172.30.0.3:votre_port/client/delete => le body à envoyer dans la requête doit contenir en JSON => body { name: name }
+DELETE IPAddress:votre_port/client/delete => le body à envoyer dans la requête doit contenir en JSON => body { name: name }
 
-172.30.0.3:votre_port/client/update =>  le body à envoyer dans la requête doit contenir en JSON => body { name: name,description: description, newName: newName }
+PUT IPAddress:votre_port/client/update =>  le body à envoyer dans la requête doit contenir en JSON => body { name: name,description: description, newName: newName }
 
 Si la database n'est pas crée, faites docker-compose exec mysqldb bash puis mysql -u root -p tapez password et ensuite CREATE DATABASE votre-db-name;
 Ensuite docker-compose up --build --force-recreate --no-deps -d app
