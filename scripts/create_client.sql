@@ -1,0 +1,7 @@
+CREATE TABLE Client(
+    id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(1000),
+    Description VARCHAR(1000),
+    create_time datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    update_time datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+)
